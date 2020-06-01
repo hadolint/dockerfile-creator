@@ -1,6 +1,6 @@
-name:                dockerfile-composer
+name:                dockerfile-creator
 version:             0.1.0.0
-github:              "hadolint/dockerfile-composer"
+github:              "hadolint/dockerfile-creator"
 license:             BSD3
 author:              "José Loreno Rodríguez"
 maintainer:          "jose.zap@gmail.com"
@@ -10,7 +10,7 @@ extra-source-files:
 - README.md
 
 description: Embedded DSL to create Dockerfiles using Haskell.
-             Please see the README on GitHub at <https://github.com/hadolint/dockerfile-composer#readme>
+             Please see the README on GitHub at <https://github.com/hadolint/dockerfile-creator#readme>
 
 dependencies:
 - base >= 4.7 && < 5
@@ -29,7 +29,7 @@ dependencies:
 library:
   source-dirs: src
   exposed-modules:
-  - Language.Docker.Composer
+  - Language.Docker.Creator
   - Language.Docker.EDSL
   - Language.Docker.EDSL.Quasi
 
@@ -42,7 +42,7 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - dockerfile-composer
+    - dockerfile-creator
     - hspec
     - Glob
     - directory

@@ -1,5 +1,5 @@
-module Language.Docker.Composer
-  ( 
+module Language.Docker.Creator
+  (
     -- * Writting Dockerfiles (@Language.Docker.EDSL@)
     Language.Docker.EDSL.toDockerfileText,
     Language.Docker.EDSL.toDockerfile,

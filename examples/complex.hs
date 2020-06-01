@@ -2,7 +2,7 @@
 -- https://github.com/mhart/alpine-node
 {-# LANGUAGE QuasiQuotes #-}
 
-import Language.Docker.Composer
+import Language.Docker.Creator
 
 main =
     putDockerfileStr $

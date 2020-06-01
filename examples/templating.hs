@@ -4,7 +4,7 @@
 
 import Control.Monad
 import Data.Semigroup ((<>))
-import Language.Docker.Composer
+import Language.Docker.Creator
 import Language.Docker.Syntax
 
 tags :: [Tag]

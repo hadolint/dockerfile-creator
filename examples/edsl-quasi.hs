@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes #-}
 
-import Language.Docker.Composer
+import Language.Docker.Creator
 
 main =
     putDockerfileStr $ do

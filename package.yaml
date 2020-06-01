@@ -1,0 +1,50 @@
+name:                dockerfile-composer
+version:             0.1.0.0
+github:              "hadolint/dockerfile-composer"
+license:             BSD3
+author:              "José Loreno Rodríguez"
+maintainer:          "jose.zap@gmail.com"
+copyright:           "2020 José Lorenzo Rodríguez"
+
+extra-source-files:
+- README.md
+
+description: Embedded DSL to create Dockerfiles using Haskell.
+             Please see the README on GitHub at <https://github.com/hadolint/dockerfile-composer#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring >=0.10
+- language-docker >= 8.1
+- free
+- mtl
+- template-haskell
+- th-lift
+- th-lift-instances
+- text
+- time
+- data-default-class
+- megaparsec >=8.0
+
+library:
+  source-dirs: src
+  exposed-modules:
+  - Language.Docker.Composer
+  - Language.Docker.EDSL
+  - Language.Docker.EDSL.Quasi
+
+tests:
+  dockerfile-composer-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - dockerfile-composer
+    - hspec
+    - Glob
+    - directory
+    - filepath
+    - process

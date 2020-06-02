@@ -5,19 +5,12 @@
 
 packages:
 - completed:
-    cabal-file:
-      size: 2797
-      sha256: 56bf460948b2862fc9129212f4f9fa39bfb39fa30bb4b7281e35d9cd82365853
-    name: language-docker
-    version: 9.0.0
-    git: https://github.com/hadolint/language-docker.git
+    hackage: language-docker-9.0.0@sha256:2bc58e0dd7ab5e42261482a1c50ad595a81b4bd93e42c1271f45a74812ccda30,2794
     pantry-tree:
-      size: 2319
-      sha256: fd7991c2c1ad3f23dc067fe29dd60ff3e91233b9576309bd4633c842c9926ce3
-    commit: 4d8377aaaf318753b69c7c93fe7c934f0cad206d
+      size: 1465
+      sha256: 53550bfa36c71764e997cdc76545256ee4cdd4f5bc5cfbf5d75be5ae2b768e2e
   original:
-    git: https://github.com/hadolint/language-docker.git
-    commit: 4d8377aaaf318753b69c7c93fe7c934f0cad206d
+    hackage: language-docker-9.0.0@sha256:2bc58e0dd7ab5e42261482a1c50ad595a81b4bd93e42c1271f45a74812ccda30,2794
 snapshots:
 - completed:
     size: 496111

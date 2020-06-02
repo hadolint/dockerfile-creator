@@ -6,5 +6,4 @@ packages:
 # forks / in-progress versions pinned to a git hash. For example:
 #
 extra-deps:
-- git: https://github.com/hadolint/language-docker.git
-  commit: 4d8377aaaf318753b69c7c93fe7c934f0cad206d
+- language-docker-9.0.0@sha256:2bc58e0dd7ab5e42261482a1c50ad595a81b4bd93e42c1271f45a74812ccda30,2794

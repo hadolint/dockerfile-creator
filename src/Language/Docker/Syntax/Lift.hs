@@ -45,6 +45,8 @@ deriveLift ''TargetPath
 
 deriveLift ''Chown
 
+deriveLift ''Chmod
+
 deriveLift ''CopySource
 
 deriveLift ''CopyArgs
@@ -78,3 +80,9 @@ deriveLift ''RunNetwork
 deriveLift ''RunFlags
 
 deriveLift ''RunArgs
+
+deriveLift ''PragmaDirective
+
+deriveLift ''EscapeChar
+
+deriveLift ''SyntaxImage

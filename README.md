@@ -1,4 +1,4 @@
-# dockerfile-composer
+# dockerfile-creator
 
 Build Dockerfiles using Haskell with an embedded DSL.
 

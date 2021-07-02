@@ -55,11 +55,11 @@ runD :: MonadWriter [Syntax.Instruction Text] m => EInstruction (m b) -> m b
 runD (From (EBaseImage name t d a p) n) = runDef Syntax.From (Syntax.BaseImage name t d a p) n
 runD (CmdArgs as n) = runDef Syntax.Cmd as n
 runD (Shell as n) = runDef Syntax.Shell as n
-runD (AddArgs s d c n) = runDef Syntax.Add (Syntax.AddArgs s d c) n
+runD (AddArgs s d co cm n) = runDef Syntax.Add (Syntax.AddArgs s d co cm) n
 runD (User u n) = runDef Syntax.User u n
 runD (Label ps n) = runDef Syntax.Label ps n
 runD (StopSignal s n) = runDef Syntax.Stopsignal s n
-runD (CopyArgs s d c f n) = runDef Syntax.Copy (Syntax.CopyArgs s d c f) n
+runD (CopyArgs s d co cm f n) = runDef Syntax.Copy (Syntax.CopyArgs s d co cm f) n
 runD (RunArgs as fs n) = runDef Syntax.Run (Syntax.RunArgs as fs) n
 runD (Workdir d n) = runDef Syntax.Workdir d n
 runD (Expose ps n) = runDef Syntax.Expose ps n
@@ -210,7 +210,7 @@ cmd = cmdArgs
 -- copy $ ["some_file"] `to` "/some/path" `fromStage` "builder"
 -- @
 copy :: MonadFree EInstruction m => Syntax.CopyArgs -> m ()
-copy (Syntax.CopyArgs sources dest ch src) = copyArgs sources dest ch src
+copy (Syntax.CopyArgs sources dest co cm src) = copyArgs sources dest co cm src
 
 -- | Create a COPY instruction from a given build stage.
 -- This is a shorthand version of using 'copy' with combinators.
@@ -224,7 +224,7 @@ copyFromStage ::
   NonEmpty Syntax.SourcePath ->
   Syntax.TargetPath ->
   m ()
-copyFromStage stage source dest = copy $ Syntax.CopyArgs source dest Syntax.NoChown stage
+copyFromStage stage source dest = copy $ Syntax.CopyArgs source dest Syntax.NoChown Syntax.NoChmod stage
 
 -- | Create an ADD instruction. This is often used as a shorthand version
 -- of copy when no extra options are needed. Currently there is no way to
@@ -234,7 +234,7 @@ copyFromStage stage source dest = copy $ Syntax.CopyArgs source dest Syntax.NoCh
 -- add ["foo.js", "bar.js"] "."
 -- @
 add :: MonadFree EInstruction m => NonEmpty Syntax.SourcePath -> Syntax.TargetPath -> m ()
-add sources dest = addArgs sources dest Syntax.NoChown
+add sources dest = addArgs sources dest Syntax.NoChown Syntax.NoChmod
 
 -- | Converts a NonEmpty list of strings to a NonEmpty list of 'Syntax.SourcePath'
 --
@@ -288,7 +288,7 @@ ownedBy args owner = args {Syntax.chownFlag = owner}
 -- copy $ ["foo.js"] `to` "." `ownedBy`
 -- @
 to :: NonEmpty Syntax.SourcePath -> Syntax.TargetPath -> Syntax.CopyArgs
-to sources dest = Syntax.CopyArgs sources dest Syntax.NoChown Syntax.NoSource
+to sources dest = Syntax.CopyArgs sources dest Syntax.NoChown Syntax.NoChmod Syntax.NoSource
 
 ports :: [Syntax.Port] -> Syntax.Ports
 ports = Syntax.Ports

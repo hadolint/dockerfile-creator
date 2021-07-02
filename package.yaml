@@ -15,7 +15,7 @@ description: Embedded DSL to create Dockerfiles using Haskell.
 dependencies:
 - base >= 4.7 && < 5
 - bytestring >=0.10
-- language-docker >= 8.1
+- language-docker >= 10.0.0
 - free
 - mtl
 - template-haskell

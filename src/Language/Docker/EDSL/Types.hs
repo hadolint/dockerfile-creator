@@ -27,6 +27,7 @@ data EInstruction next
       (NonEmpty Syntax.SourcePath)
       Syntax.TargetPath
       Syntax.Chown
+      Syntax.Chmod
       next
   | User
       Text
@@ -41,6 +42,7 @@ data EInstruction next
       (NonEmpty Syntax.SourcePath)
       Syntax.TargetPath
       Syntax.Chown
+      Syntax.Chmod
       Syntax.CopySource
       next
   | RunArgs
